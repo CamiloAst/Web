@@ -22,7 +22,7 @@
 
             <div class="row my-5 mx-1">
                 <div class="col-6">
-                    <label for="encabezado">Introduzca el encabzado del paquete de datos:</label>
+                    <label for="encabezado">Introduzca el encabezado del paquete de datos:</label>
                 </div>
                 <div class="col-6">
                     <input type="text" class="form-control" id="encabezado">
@@ -40,7 +40,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#" data-value="Texto ASCII">Texto ASCII</a></li>
-                            <li><a class="dropdown-item" href="#" data-value="Decimal">Número entero decimal</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="Decimal">Número entero Decimal</a></li>
                             <li><a class="dropdown-item" href="#" data-value="Hexadecimal">Número entero Hexadecimal</a>
                             </li>
                             <li><a class="dropdown-item" href="#" data-value="IPv4">Dirección IPv4</a></li>
@@ -56,26 +56,26 @@
             <div class="row mx-1 px-5 py-3">
                 <div class="col-3">
                     <p class="text-center">Longitus en bits: </p>
-                    <div class="resultado">
-
+                    <div class="resultado badge" style="color:black">
+                        <span id="longitudBits">0</span>
                     </div>
                 </div>
                 <div class="col-3">
                     <p class="text-center">Digitos hexadecimales: </p>
-                    <div class="resultado">
-
+                    <div class="resultado badge" style="color:black">
+                        <span id="digitosHex">0</span>
                     </div>
                 </div>
                 <div class="col-3">
                     <p class="text-center">Campo Encabezado: </p>
-                    <div class="resultado">
-
+                    <div class="resultado badge" style="color:black">
+                        <span id="campoEncabezado"></span>
                     </div>
                 </div>
                 <div class="col-3">
                     <p class="text-center" id="formatoSeleccionado">Valor</p>
-                    <div class="resultado">
-
+                    <div class="resultado badge" style="color:black">
+                        <span id="valor"></span>
                     </div>
                 </div>
             </div>

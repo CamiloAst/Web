@@ -25,12 +25,10 @@ body {
     border: 1px solid #ccc;
     padding: 5px;
     width: 80px;
-    /* Ancho deseado */
     height: 25px;
     text-align: center;
     display: inline-block;
     cursor: default;
-    /* Evita que el cursor cambie al pasar sobre el elemento */
 }
 
 .resultado:hover {
