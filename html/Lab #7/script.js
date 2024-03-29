@@ -12,7 +12,7 @@ var formatoButton = document.getElementById('formato');
 
 document.addEventListener('DOMContentLoaded', function () {
 
-
+    btnCalcular.disabled = true;
     formatoSeleccionadoSpan.textContent = formatoDropdownItems[0].textContent;
 
     formatoDropdownItems.forEach(function (item) {
@@ -24,22 +24,34 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 btnCalcular.addEventListener('click', function () {
     var valorEncabezado = calcular();
+    encabezado.disabled = true;
+    encabezado.value = valorEncabezado;
+
+    //document.querySelector('.pane').innerHTML += '<hr>';
+    var formClonado = document.querySelector('.clones').cloneNode(true);
+    document.querySelector('.pane').appendChild(formClonado);
+
     if (valorEncabezado === '') {
         alert('No hay más datos por calcular');
-    } else {
-        var formClonado = document.querySelector('.pane').cloneNode(true);
-        document.querySelector('.container').appendChild(formClonado);
-        encabezado.value = valorEncabezado;
+        encabezado.disabled = false;
     }
 
 });
+encabezado.addEventListener('input', function () {
+    if (encabezado.value === '') {
+        btnCalcular.disabled = true;
+    } else {
+        btnCalcular.disabled = false;
+    }
+});
+
 
 btnLimpiar.addEventListener('click', function () {
     limpiar();
 });
 function calcular() {
     var formato = formatoSeleccionadoSpan.textContent;
-    var valorEncabezado = encabezado.value;
+    var valorEncabezado = encabezado.value.trim();
     digitosHexa.textContent = parseInt(longitud.value) * 2;
     campoEncabezado.textContent = valorEncabezado.substring(0, digitosHexa.textContent);
     longitudBits.textContent = parseInt(longitud.value) * 8;
@@ -49,9 +61,9 @@ function calcular() {
     } else if (formato === 'Número entero Hexadecimal') {
         valor.textContent = campoEncabezado.textContent;
     } else if (formato === 'Número entero Decimal') {
-        valor.textContent = hexToInteger(campoEncabezado.textContent).join('');
+        valor.textContent = parseInt(campoEncabezado.textContent, 16);
     } else if (campoEncabezado.textContent.length <= 8 && formato === 'Dirección IPv4') {
-        valor.textContent = hexToInteger(campoEncabezado.textContent).join('.');
+        valor.textContent = hexToIntegerIP(campoEncabezado.textContent).join('.');
     } else {
         alert('Formato no válido');
     }
@@ -67,6 +79,7 @@ function limpiar() {
     digitosHexa.textContent = '0';
     campoEncabezado.textContent = '';
     valor.textContent = '';
+    encabezado.disabled = false;
 }
 function hexToAscii(hex) {
     var ascii = '';
@@ -76,7 +89,7 @@ function hexToAscii(hex) {
     }
     return ascii;
 }
-function hexToInteger(hex) {
+function hexToIntegerIP(hex) {
     var integers = [];
     for (var i = 0; i < hex.length; i += 2) {
         var hexPair = hex.substr(i, 2);
