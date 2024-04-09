@@ -39,7 +39,7 @@ p {
     font-size: 15px;
 }
 
-.button {
+#limpiar {
     position: relative;
     display: flex;
     align-items: center;
@@ -58,14 +58,14 @@ p {
     transition: all 0.3s ease cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.button span {
+#limpiar span {
     position: relative;
     z-index: 2;
     display: flex;
     align-items: center;
 }
 
-.button::before {
+#limpiar::before {
     position: absolute;
     content: '';
     width: 100%;
@@ -75,22 +75,22 @@ p {
     transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.button svg {
+#limpiar svg {
     width: 32px;
     height: 32px;
     fill: #F53844;
     transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.button:hover {
+#limpiar:hover {
     animation: shake 0.2s linear 1;
 }
 
-.button:hover::before {
+#limpiar:hover::before {
     translate: 0 0;
 }
 
-.button:hover svg {
+#limpiar:hover svg {
     fill: #e8e8e8;
 }
 
@@ -112,7 +112,7 @@ p {
     }
 }
 
-.buttonC {
+#calcular {
     display: inline-block;
     padding: 12px 24px;
     border: 1px solid #4f4f4f;
@@ -126,7 +126,7 @@ p {
     z-index: 1;
 }
 
-.buttonC:before {
+#calcular:before {
     content: "";
     position: absolute;
     left: 50%;
@@ -141,7 +141,7 @@ p {
     z-index: -1;
 }
 
-.buttonC:after {
+#calcular:after {
     content: "";
     position: absolute;
     left: 55%;
@@ -156,18 +156,18 @@ p {
     z-index: -1;
 }
 
-.buttonC:hover {
+#calcular:hover {
     color: #ffffff;
     border: 1px solid #39bda7;
 }
 
-.buttonC:hover:before {
+#calcular:hover:before {
     top: -35%;
     background-color: #39bda7;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
 
-.buttonC:hover:after {
+#calcular:hover:after {
     top: -45%;
     background-color: #39bda7;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
